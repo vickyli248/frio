@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel= "stylesheet" type= "text/css" href= "{{url_for('static',filename='styles/frio.css') }}">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Frio</title>
+	<link rel="stylesheet" href="./frio.css">
+</head>
+
+<body>
+	<div class="contain">
+		<form action = "/add" method = "POST">
+			<input type = "text" name = "ingredient">
+			<input type = "submit">
+		</form>
+	</div>
+		<div class="sectioned">
+			<p class="section-header">Here's What You Can Make!</p>
+			<output class="recipe">Pasta</output>
+			<output class="recipe">Cookies</output>
+			<output class="recipe">Pizza</output>
+		</div>
+	
+
+	<div class="row">
+		<section class="sectioned">
+			<p class="section-header">Google Maps API</p>
+			<div class="api-box">
+				
+			</div>
+		</section>
+		<section class="sectioned">
+			<p class="section-header">Retail API</p>
+			<div class="api-box">
+				
+			</div>
+		</section>
+	</div>
+
+
+</body>
+
+</html>
