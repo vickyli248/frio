@@ -6,10 +6,12 @@ from flask import redirect
 from flask_sqlalchemy import SQLAlchemy
 from Test import *
 
+global inputIngredientList
+inputIngredientList = []
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/vickyli/frio/ingredients3.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/vickyli/frio/ingredients4.db'
 
 db = SQLAlchemy(app)
 
@@ -18,10 +20,7 @@ class Ingredients(db.Model):
 	text = db.Column(db.String(200))
 	gone = db.Column(db.Boolean)
 
-
 @app.route('/')
-@app.route('/welcome')
-@app.route('/home')
 def welcome():
 	return render_template('homepage.html')
 
@@ -32,21 +31,30 @@ def frio():
 
 @app.route('/add', methods = ['POST'])
 def add():
-	inputIngredientList = ""
 	ingredient = Ingredients(text = request.form['ingredient'], gone = False)
 	db.session.add(ingredient)
 	db.session.commit() 
 	ings = Ingredients.query.all()
+
 	for ing in ings:
-		inputIngredientList += ing.text + ","
+		if ing in inputIngredientList:
+			return
+		word = "".join(ing.text)
+		inputIngredientList.append(word)
+
 	#print_names(ingr_to_recipes(inputIngredientList))
+	print(inputIngredientList)
 	return redirect(url_for('frio'))
 
 @app.route('/gone/<id>')
 def gone(id):
 	ingredient = Ingredients.query.filter_by(id = int(id)).first()
-	ingredient.gone = True
-	db.session.commit()
+	db.session.delete(ingredient)
+	ings = Ingredients.query.all()
+	for ing in ings:
+		word = "".join(ing.text)
+		inputIngredientList.remove(word)
+	print(inputIngredientList)
 	return redirect(url_for('frio'))
 
 if __name__ == '__main__':
