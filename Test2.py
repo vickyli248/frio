@@ -1,6 +1,6 @@
 import requests, json
 
-apikey = "?apiKey=71dd2a0526f842549d117f89c0952f9a"
+apikey = "?apiKey=376ef9c2feea48238de9c95e6e4d69a3"
 urls = {'recipe':"https://api.spoonacular.com/recipes/findByIngredients"+apikey, 'substitutes' : "https://api.spoonacular.com/food/ingredients/substitutes"+apikey}
 
 headers = {'Content-Type': "application/json"}

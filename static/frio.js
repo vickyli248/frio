@@ -147,7 +147,6 @@ var link2 = document.getElementById("l2");
 var link3 = document.getElementById("l3");
 
 document.querySelector('.buttons').addEventListener('click', function(event) {
-  console.log("ha bet");
   switch(event.target.value){
     case 'finances':
       link1.setAttribute("href", "https://www.everydollar.com/blog/create-a-meal-plan");
@@ -177,40 +176,3 @@ document.querySelector('.buttons').addEventListener('click', function(event) {
 
   }
 });
-
-/*
-function notEmpty(){
-  var selector = document.querySelector(".resource-type");
-  var selected = selector.options[selector.selectedIndex].value;
-  switch(selected){
-    case 'finances':
-      link1.setAttribute("href", "https://www.everydollar.com/blog/create-a-meal-plan");
-      link1.innerText = "Basic Guide to Creating a Meal Plan";
-      link2.setAttribute("href", "https://www.fns.usda.gov/snap/supplemental-nutrition-assistance-program");
-      link2.innerText = "Government SNAP program";
-      link3.setAttribute("href","https://www.mashupmom.com/category/meal-planning/");
-      link3.innerText = "Free Meal Planning Service";
-    break;
-    case 'nutrition':
-      link1.setAttribute("href", "https://www.eatright.org/food#Nutrition");
-      link1.innerText = "Academy of Nutrition and Dietetics";
-      link2.setAttribute("href", "https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/healthy-recipes/art-20047195");
-      link2.innerText = "Mayoclinic Healthy Eating Guide";
-      link3.setAttribute("href","https://www.nhlbi.nih.gov/health/educational/wecan/eat-right/portion-distortion.htm");
-      link3.innerText = "Portioning Guide";
-    break;
-    case 'recipes':
-      link1.setAttribute("href", "https://www.allrecipes.com/");
-      link1.innerText = "Master Recipe Catalogue";
-      link2.setAttribute("href", "https://fitfoodiefinds.com/best-healthy-recipes-for-college-kids-budget-friendly-and-meal-prep/");
-      link2.innerText = "Recipes for college students";
-      link3.setAttribute("href","https://www.tasteofhome.com/collection/budget-friendly-dinners-that-are-big-on-taste/");
-      link3.innerText = "Budget-friendly recipes by Taste of Home";
-    break;
-    default:
-
-  }
-}
-notEmpty()
-document.querySelector(".resource-type").onchange = notEmpty;
-*/
