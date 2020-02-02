@@ -12,7 +12,7 @@ inputIngredientList = []
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/vickyli/frio/ingredients4.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/vickyli/frio/ingredients5.db'
 
 db = SQLAlchemy(app)
 
