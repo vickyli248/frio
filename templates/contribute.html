@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<title>Frio</title>
+	<link rel="stylesheet" href="./contribute.css">
+</head>
+<body>
+	<h1>Which Store did you visit?</h1>
+	<input type="text" class="visited-store" name="store" />
+	<br /> <br />
+	<button class="toggle">Enter Price Inputs <- click to reveal</button>
+	<p>or</p>
+	<button class="scanner">Scan Receipt! <- click to work</button>
+	<br /> 
+	<p class="error-catcher"> </p>
+	<div class="price-form">
+		<form action="" method="post">
+			<ul>
+				<li>
+					<label for="i-1">Ingredient 1:</label>
+					<input type="text" id="i-1" name="input-1" />
+					<label for="p-1">Price:</label>
+					<input type="text" id="p-1" name="price-1" />
+				</li>
+				<li>
+					<label for="i-2">Ingredient 2:</label>
+					<input type="text" id="i-2" name="input-2" />
+					<label for="p-2">Price:</label>
+					<input type="text" id="p-2" name="price-2" />
+				</li>
+				<li>
+					<label for="i-3">Ingredient 3:</label>
+					<input type="text" id="i-3" name="input-3" />
+					<label for="p-3">Price:</label>
+					<input type="text" id="p-3" name="price-3" />
+				</li>
+				<li>
+					<button type="submit">Submit</button>
+				</li>
+			</ul>
+		</form>
+	</div>
+	<div class="file-form">
+		<p>Upload Jpg of Receipt</p>
+		<input type="file" />
+	</div>
+	<script src="contribute.js"></script>
+</body>
+</html>

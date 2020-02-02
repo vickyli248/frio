@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/frio.css') }}">
+<link rel= "stylesheet" type= "text/css" href= "{{url_for('static',filename='styles/home.css') }}">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 	<title>Frio</title>
-	<link rel="stylesheet" href="./frio.css">
 </head>
-<body> 
-	<div class = "contain">
-		<img class = "fridge" src= "{{url_for('static', filename='fridge.png')}}" alt="Fridge Girl">
-		<img class = "fridgetext" src= "{{url_for('static', filename='friohometext.png')}}" alt="Homepage Text">
+<body>
+	<div class="home">
+		<div class="fridge-div">
+			<img class = "fridge" src= "{{url_for('static', filename='fridge.png')}}" alt="Fridge Girl">
+		</div>
+		<div class="text">
+			<img class = "home-text" src= "{{url_for('static', filename='friohometext.png')}}" alt="Homepage Text">
+			<a href="/frio" class="linker"><button class="get-started">Get Started!</button></a>
+		</div>
 	</div>
-	
 </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel= "stylesheet" type= "text/css" href= "{{url_for('static',filename='styles/frio.css') }}">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Frio</title>
+</head>
+
+<body>
+	<div style="display:flex;flex-direction: column;">
+		<div>
+			<form action = "/add" method = "POST">
+				<input type = "text" name = "ingredient">
+				<input type = "submit">
+			</form>
+		</div>
+		<div>
+			<ul>
+				{% for ingredient in ingredients %}
+				<li style="font-size: 30pt">{{ ingredient.text }} <a href = "{{url_for('gone', id = ingredient.id) }}">Delete Ingredient</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div>
+			<span>
+				{% for name in recipenames %}
+				<li style="font-size: 30pt">{{ name }}</li>
+				{% endfor %}
+			</span>
+			
+		</div>
+	
+	</div>
+
+</body>
+
+</html>

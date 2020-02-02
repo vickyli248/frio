@@ -1,0 +1,63 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin:130px;
+	height: 550px;
+}
+
+@font-face {
+  	font-family: lemon-milk;
+  	src: url(./lemon_milk/LEMONMILK-Light.otf);
+}
+
+.home {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	flex-direction: row;
+}
+
+.fridge-div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	width: 50%;
+
+}
+
+.get-started {
+	background-color: #9CDABD;
+	color: white;
+	border-radius: 10px;
+	width: 358px;
+	height: 62px;
+	text-align: center;
+	font-size: 24px;
+	border: none;
+	outline: none;
+	font-family: "lemon-milk";
+	cursor: pointer;
+	letter-spacing: 7px;
+}
+
+.linker {
+	text-decoration: none;
+	color: white;
+}
+
+.home-text {
+	width: 100%;
+}
+.fridge {
+	width: 100%;
+}
