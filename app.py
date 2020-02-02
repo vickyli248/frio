@@ -26,21 +26,19 @@ def welcome():
 
 @app.route('/frio')
 def frio():
-	ingredients = Ingredients.query.filter_by(gone = False).all()
+	ingredients = Ingredients.query.all()
 	return render_template('frio.html', ingredients = ingredients)
 
 @app.route('/add', methods = ['POST'])
 def add():
-	ingredient = Ingredients(text = request.form['ingredient'], gone = False)
+	ingredient = Ingredients(text = request.form['ingredient'])
 	db.session.add(ingredient)
-	db.session.commit() 
+	db.session.commit()
 	ings = Ingredients.query.all()
-
 	for ing in ings:
-		if ing in inputIngredientList:
-			return
 		word = "".join(ing.text)
-		inputIngredientList.append(word)
+		if word not in inputIngredientList:
+			inputIngredientList.append(word)
 
 	#print_names(ingr_to_recipes(inputIngredientList))
 	print(inputIngredientList)
@@ -50,10 +48,9 @@ def add():
 def gone(id):
 	ingredient = Ingredients.query.filter_by(id = int(id)).first()
 	db.session.delete(ingredient)
-	ings = Ingredients.query.all()
-	for ing in ings:
-		word = "".join(ing.text)
-		inputIngredientList.remove(word)
+	db.session.commit()
+	word = "".join(ingredient.text)
+	inputIngredientList.remove(word)
 	print(inputIngredientList)
 	return redirect(url_for('frio'))
 
