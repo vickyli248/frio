@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='frio.css')}}">
+<link rel= "stylesheet" type= "text/css" href= "{{url_for('static',filename='frio.css') }}">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 	<title>Frio</title>
+	<link rel="stylesheet" href="./frio.css">
 </head>
 <body>
 	<div class="header">
-		<a href="/"><img src= "{{url_for('static', filename='friohometext.png')}}" alt="Frio Logo"></a>
+		<a href="./home.html"><img src="{{url_for('static', filename='friohometext.png')}}" alt="frio logo"></img></a>
 		<a href="https://hacksc.com/"><img src="{{url_for('static', filename='hacksc.png')}}" alt="HackSC logo"></img></a>
 	</div>
 	<div class="row">
 		<div class="box1">
 			<div class="text-row">
 				<p class="box-header">Your Ingredients!</p>
-				<button class="add-ingredient">+</button>
 			</div>
 			<div class="content">
 				<form action = "/add" method = "POST">
 					<input type = "text" name = "ingredient">
 					<input type = "submit">
 				</form>
+				<ul>
+				{% for ingredient in ingredients %}
+				<li style="font-size: 10pt">{{ ingredient.text }} <a href = "{{url_for('gone', id = ingredient.id) }}">Delete</a></li>
+				{% endfor %}
+			</ul>
 			</div>
 		</div>
 		<div class="box2">
@@ -38,10 +43,12 @@
 		<div class="box3">
 			<div class="half">
 				<p class="box-header box-header-3">What you can Make!</p>
-				<div class="content">
-					<output class="recipe recipe-1"></output>
-					<output class="recipe recipe-2"></output>
-					<output class="recipe recipe-3"></output>
+				<div class="content content2">
+					<span>
+				{% for name in recipenames %}
+				<li style="font-size: 10pt">{{ name }}</li>
+				{% endfor %}
+			</span>
 				</div>
 			</div>
 			<div class="half">
@@ -74,6 +81,7 @@
 			</div>
 		</div>
 	</div>
+	
 	<div class="row row-3">
 		<div class="box3">
 			<div class="half">
@@ -109,6 +117,80 @@
 		</div>
 		<a href="https://hacksc.com/"><img src="{{url_for('static', filename='hacksc.png')}}" alt="HackSC logo"></img></a>
 	</div>
-    <script type = "text/javascript" src="static/frio.js"></script>
+	<script>
+		let selection = document.querySelector('.select-css');
+
+		function redirect(){
+  if (selection.value == "traderJoes"){window.location.href = "https://www.traderjoes.com/";}
+  else if (selection.value == "smartAndFinal"){window.location.href = "https://www.smartandfinal.com/";}
+  else if (selection.value == "yAndY"){window.location.href = "https://www.google.com/search?rlz=1C5CHFA_enUS856US856&tbm=lcl&ei=1hg2Xv7yJbC50PEPoKqDoAo&q=Y+and+Y+Market&oq=Y+and+Y+Market&gs_l=psy-ab.3..0i22i30k1l2j38.4875.7891.0.8424.14.14.0.0.0.0.302.1394.4j4j1j1.10.0....0...1c.1.64.psy-ab..4.10.1387...0j0i67k1j0i131i273k1j0i273k1j0i131k1.0.or2iwmniqsQ#rlfi=hd:;si:1994866821941711466;mv:[[34.01369327731903,-118.2795356735801],[34.013333322680964,-118.27996992641988]]";}
+  else if (selection.value == "atmSunshine"){window.location.href = "https://www.google.com/maps/place/ATM+Sunshine+Discount+Store/@34.0256837,-118.2966684,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2c7f74f4d8aed:0xacd026f5f837420e!8m2!3d34.0256793!4d-118.2944797";}
+}
+
+		var tips = [
+'If you are short on time, pack a healthy portable snack such as fruit or a granola bar to eat during lecture.',
+'Never skip breakfast. Ideally, your breakfast should have protein such as eggs or yogurt.',
+'Invest in a good water bottle in order to stay hydrated throughout the day.',
+'If you are having trouble consistently going to the gym, consider athletic clubs on campus.',
+'If your dining hall is buffet-style, be sure to take a balance of key nutrients.',
+'Tight on money? Most colleges have a pantry of food for those in need.'
+];
+
+let tip1 = document.querySelector('.tip-1');
+let tip2 = document.querySelector('.tip-2');
+let tip3 = document.querySelector('.tip-3');
+
+var n1 = Math.floor(Math.random() * tips.length);
+var n2 = Math.floor(Math.random() * tips.length);
+var n3 = Math.floor(Math.random() * tips.length);
+
+while(n1 == n2)
+{
+  n1 = Math.floor(Math.random() * tips.length);
+}
+while(n3 == n1 || n3 == n2)
+{
+  n3 = Math.floor(Math.random() * tips.length);
+}
+
+tip1.innerText = tips[n1];
+tip2.innerText = tips[n2];
+tip3.innerText = tips[n3];
+
+var link1 = document.getElementById("l1");
+var link2 = document.getElementById("l2");
+var link3 = document.getElementById("l3");
+
+document.querySelector('.buttons').addEventListener('click', function(event) {
+  switch(event.target.value){
+    case 'finances':
+      link1.setAttribute("href", "https://www.everydollar.com/blog/create-a-meal-plan");
+      link1.innerText = "Basic Guide to Creating a Meal Plan";
+      link2.setAttribute("href", "https://www.fns.usda.gov/snap/supplemental-nutrition-assistance-program");
+      link2.innerText = "Government SNAP program";
+      link3.setAttribute("href","https://www.mashupmom.com/category/meal-planning/");
+      link3.innerText = "Free Meal Planning Service";
+    break;
+    case 'nutrition':
+      link1.setAttribute("href", "https://www.eatright.org/food#Nutrition");
+      link1.innerText = "Academy of Nutrition and Dietetics";
+      link2.setAttribute("href", "https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/healthy-recipes/art-20047195");
+      link2.innerText = "Mayoclinic Healthy Eating Guide";
+      link3.setAttribute("href","https://www.nhlbi.nih.gov/health/educational/wecan/eat-right/portion-distortion.htm");
+      link3.innerText = "Portioning Guide";
+    break;
+    case 'recipes':
+      link1.setAttribute("href", "https://www.allrecipes.com/");
+      link1.innerText = "Master Recipe Catalogue";
+      link2.setAttribute("href", "https://fitfoodiefinds.com/best-healthy-recipes-for-college-kids-budget-friendly-and-meal-prep/");
+      link2.innerText = "Recipes for college students";
+      link3.setAttribute("href","https://www.tasteofhome.com/collection/budget-friendly-dinners-that-are-big-on-taste/");
+      link3.innerText = "Budget-friendly recipes by Taste of Home";
+    break;
+    default:
+
+  }
+});
+	</script>
 </body>
 </html>

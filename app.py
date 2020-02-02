@@ -5,7 +5,6 @@ from flask import url_for
 from flask import redirect
 from flask_sqlalchemy import SQLAlchemy
 from Test2 import *
-from flask_static_compress import FlaskStaticCompress
 
 
 # globally accessible list of ingredients
@@ -14,10 +13,9 @@ inputIngredientList = []
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/vickyli/frio/ingredients5.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/vickyli/frio/ingredients6.db'
 
 db = SQLAlchemy(app)
-compress = FlaskStaticCompress(app)
 
 # ingredients class with attributes id, text, and existance
 class Ingredients(db.Model):

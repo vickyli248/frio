@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<title>Frio</title>
+	<link rel="stylesheet" href="./page1.css">
+</head>
+<body>
+	<div class="header">
+		<a href="./home.html"><img src="./friohometext.png" alt="frio logo"></img></a>
+		<a href="https://hacksc.com/"><img src="./hacksc.png" alt="HackSC logo"></img></a>
+	</div>
+	<div class="row">
+		<div class="box1">
+			<div class="text-row">
+				<p class="box-header">Your Ingredients!</p>
+				<button class="add-ingredient">+</button>
+			</div>
+			<div class="content">
+				<form action = "/add" method = "POST">
+					<input type = "text" name = "ingredient">
+					<input type = "submit">
+				</form>
+				<ul class="ingredients">
+					<li>hello</li>
+
+				</ul>
+			</div>
+		</div>
+		<div class="box2">
+			<p class="box-header box-header-1">Grocery Stores Near You</p>
+			<iframe 
+			    width="95%"
+			    height="90%"
+			    frameborder="0" style="border:0"
+			    src="https://www.google.com/maps/embed/v1/search?key=AIzaSyDVDOx4Z6KyJQT0V2lGG25jmTRHcG47D6U&q=grocery+stores+near+usc&zoom=14" allowfullscreen>
+			</iframe>
+		</div>
+	</div>
+	<div class="row row-2">
+		<div class="box3">
+			<div class="half">
+				<p class="box-header box-header-3">What you can Make!</p>
+				<div class="content">
+					<output class="recipe recipe-1"></output>
+					<output class="recipe recipe-2"></output>
+					<output class="recipe recipe-3"></output>
+				</div>
+			</div>
+			<div class="half">
+				<p class="box-header box-header-3">Price Checker!</p>
+				<div class="price-box">
+				  	<select class="select-css">
+				     	<option value="traderJoes">Trader Joe's</option>
+					    <option value="smartAndFinal">Smart And Final</option>
+						<option value="yAndY">Y & Y Market</option>
+						<option value="atmSunshine">ATM Sunshine Discount Store</option>
+					</select>
+					<br />
+					<button class="price-button price-checker">Check Prices</button>
+					<table>
+						<tr>
+							<th class="first-chosen"></th>
+							<th class="second-chosen"></th>
+							<th class="third-chosen"></th>
+						</tr>
+						<tr>
+							<td class="first-chosen-price"></td>
+							<td class="second-chosen-price"></td>
+							<td class="third-chosen-price"></td>
+						</tr>
+					</table>
+					<button class="price-button all-prices">More!</button>
+					<button class="contribute"><a href="./contribute.html" class="page-contribute">Contribute!</a></button>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row row-2">
+		
+	</div>
+	<div class="row row-3">
+		<div class="box3">
+			<div class="half">
+				<p class="box-header box-header-3">Health Tips and Resources!</p>
+				<div class="push-left">
+					<ul class="dashed">
+						<li class="tip-1"></li>
+						<br />
+						<li class="tip-2"></li>
+						<br />
+						<li class="tip-3"></li>
+					</ul>
+				</div>
+			</div>
+			<div class="half">
+				<div class="buttons">
+			  		<button value="finances" class="resource">Finances</button>
+			  		<button value="nutrition" class="resource">Nutrition</button>
+			  		<button value="recipes" class="resource">Recipes</button>
+			  	</div>
+					<div class="resources">
+						<a href="" id="l1"></a> <br>
+						<a href="" id="l2"></a> <br>
+						<a href="" id="l3"></a>
+					</div>
+			</div>
+		</div>
+	</div>
+	<div class="header">
+		<div class="berkeley">
+			<a href="https://www.berkeley.edu/"><img src="./logo.png" alt="berkeley seal" style="width: 90px; height: 100px; padding-bottom: 10px; margin-right: 0px;"></img></a>
+			<a href="https://eecs.berkeley.edu/"><img src="./berkeley.png" alt="berkeley logo" style="width: 480px; height: 150px; margin-left: 0px;"></img></a>
+		</div>
+		<a href="https://hacksc.com/"><img src="./hacksc.png" alt="HackSC logo"></img></a>
+	</div>
+	<script src="./page1.js"></script>
+</body>
+</html>

@@ -105,10 +105,14 @@ body {
 	border: 1px solid black;
 	*/
 	display: flex;
-	flex-direction: column;
-	height: 60%;
-	width: 30%;
+	flex-direction: column-reverse;
+	height: 25%;
+	width: 50%;
 	justify-content: space-between;
+}
+
+.content2 {
+	width: 80%;
 }
 
 .price-box {
@@ -211,7 +215,7 @@ ul.dashed > li:before {
 }
 
 .resource {
-	width: 25%;
+	width: 30%;
 	background-color: #9CDABD;
 	color: white;
 	border-radius: 5px;
@@ -221,7 +225,7 @@ ul.dashed > li:before {
 	outline: none;
 	font-family: "lemon-milk";
 	cursor: pointer;
-	letter-spacing: 7px;
+	letter-spacing: 5px;
 	transition: all 0.2s;
 }
 
